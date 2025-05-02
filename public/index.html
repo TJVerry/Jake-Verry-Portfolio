@@ -1,89 +1,1236 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jake - Personal Portfolio</title>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/11.6.1/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/11.6.1/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/11.6.1/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/11.6.1/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/11.6.1/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/11.6.1/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/11.6.1/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/11.6.1/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/11.6.1/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/11.6.1/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="images/Memoji.png" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
     -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    <aside class="sidebar" data-sidebar="">
+
+<div class="sidebar-info">
+  <a href="./images/ProfilePic.jpg" target="_blank" rel="noopener noreferrer" title="Click me!">
+    <figure class="avatar-box">
+      <img src="images/memoji.png" alt="Jake Verry" width="80">
+      <span class="active-status" title="Available for work!"></span>
+    </figure>
+  </a>
+
+  <div class="info-content">
+    <h1 class="name" title="Jake Verry">Jake Verry</h1>
+    <p class="title">Software Engineer</p>
+  </div>
+  <button class="info_more-btn" data-sidebar-btn="">
+    <span>Show Contacts</span>
+    <ion-icon name="chevron-down"></ion-icon>
+  </button>
+</div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline" class="info-icon"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="me@jakeverry.com" class="contact-link">me@jakeverry.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="call-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="tel:757 652 9666" class="contact-link">(757) 652-9666</a>
+            </div>
+
+          </li>
+
+          <!-- birthday -->
+
+          <!-- <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+
+              <time datetime="1999-09-26">Sep 26, 1999</time>
+            </div>
+
+          </li> -->
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Virginia Beach, VA</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://github.com/TJVerry" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16" id="IconChangeColor">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" id="mainIconPathAttribute" fill="#ffffff"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/jake-verry/" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16" id="IconChangeColor">
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" id="mainIconPathAttribute" fill="#ffffff"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://g.dev/jakeverry" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16" id="IconChangeColor">
+                <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" id="mainIconPathAttribute" fill="#ffffff"></path>
+              </svg>
+            </a>
+        </ul>
+      </div>
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link="">About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link="">Tech Stack</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link="">Resume</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link="">Portfolio</button>
+          </li>
+
+          <!-- <li class="navbar-item">
+            <button class="navbar-link" data-nav-link="">Blog</button>
+          </li> -->
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link="">Contact</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            A passionate Flutter developer with strong expertise in cross-platform apps, REST APIs, UI/UX, widgets, and state management solutions. 
+            Proven track record in delivering cutting-edge solutions, including API integration, third-party libraries, and performance optimization. 
+            Adept at debugging to ensure high-quality, responsive apps and An agile collaborator committed to staying current with industry trends.
+          </p>
+
+          <p>
+            If you're seeking a skilled Flutter developer to breathe life into your project and exceed your expectations, 
+            I am here to collaborate and create magic together. 
+            Reach out, and let's transform your vision into a reality!
+        </p></section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">What I love doing</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="images/icon-app.svg" alt="mobile app icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Mobile Apps</h4>
+
+                <p class="service-item-text">
+                  Professional development of applications for Android and ios.
+                </p>
+              </div>
+
+            </li>
+            
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="images/icon-dev.svg" alt="Web development icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Web development</h4>
+
+                <p class="service-item-text">
+                  High-quality development of sites at the professional level.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="images/icon-design.svg" alt="design icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">UI/UX Design</h4>
+
+                <p class="service-item-text">
+                  The most modern and high-quality design made at a professional level.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="images/icon-backend.svg" alt="camera icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Backend Development</h4>
+
+                <p class="service-item-text">
+                  High-performance backend services designed for scalability and seamless user experience.
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials
+        -->
+
+        <!-- <section class="testimonials">
+
+          <h3 class="h3 testimonials-title">Testimonials</h3>
+
+          <ul class="testimonials-list has-scrollbar">
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Daniel lewis</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                    lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                    consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Jessica miller</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                    lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                    consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                    lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                    consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                    lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                    consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </section> -->
+
+
+        <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container="">
+
+          <div class="overlay" data-overlay=""></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn="">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="images/memoji.png" alt="Jake Verry" width="80" data-modal-img="">
+              </figure>
+
+              <img src="images/icon-quote.svg" alt="quote icon">
+            </div>
+
+            <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-modal-title="">Jake Verry</h4>
+
+              <time datetime="2021-06-14">14 June, 2021</time>
+
+              <div data-modal-text="">
+                <p>
+                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                  lot of experience
+                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                  consectetur adipiscing
+                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+        </div> 
+
+
+        <!--
+          - clients
+        -->
+
+        <section class="clients">
+
+          <h3 class="h3 clients-title">Skills</h3>
+
+          <ul class="clients-list has-scrollbar">
+
+            <li class="clients-item">
+              <a href="https://dart.dev/" target="_blank">
+                <img src="images/Dart.svg" alt="client logo" style="filter: none;">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="https://flutter.dev/" target="_blank">
+                <img src="images/Flutter.svg" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="https://firebase.google.com/" target="_blank">
+                <img src="images/Firebase.svg" alt="client logo">
+              </a>
+            </li>
+
+
+            <li class="clients-item">
+              <a href="https://www.postman.com/" target="_blank">
+                <img src="images/Postman.svg" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="https://www.figma.com/" target="_blank">
+                <img src="images/Figma.svg" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="https://developer.android.com/studio" target="_blank">
+                <img src="images/AndroidStudio.svg" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="https://developer.apple.com/xcode/" target="_blank">
+                <img src="images/Xcode.svg" alt="client logo">
+              </a>
+            </li>
+
+        </ul></section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Christopher Newport University</h4>
+              <p class="timeline-text">Bachelor of Science in Computer Science and Marketing (B.Sc. BSBA)</p>
+              <span>Sept, 2019 — May 2024</span>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Google Certification</h4>
+              <p class="timeline-text">Professional Machine Learning Engineer</p>
+              <span>Mar, 2025 — Ongoing</span>
+            </li>
+
+
+          </ol>
+
+        </section>
+
+
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Experience</h3>
+          </div>
+        
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Mid-Level Flutter Developer</h4>
+              <p class="timeline-text">Tokma Technologies</p>
+              <span data-start-date="2024-07-01" data-end-date="present">Aug, 2024 — Present  •  <span class="duration"></span>
+              <p class="timeline-text"><i>Kathmandu, Nepal</i></p>
+              <ul class="timeline-text">
+                <li>Developed new features and implemented UI designs into code using Flutter.</li>
+                <li>Designed and created custom e-form features including scrolling features and data entries.</li>
+                <li>Integrated Google and Facebook sign-in for user authentication.</li>
+                <li>Designed dynamic functionalities using the BLOC design pattern.</li>
+                <li>Integrated APIs for seamless data communication and backend functionality.</li>
+                <li>Implemented payment gateway integration like Khalti for secure transactions.</li>
+                <li>Collaborated with other developers and backend team to deliver features.</li>
+                <li>Participated in team meetings to discuss new features and project updates.</li>
+                <li>Ensured smooth functionality and user-friendly experiences throughout the app.</li>
+                <li>Performed code review and deployed the app in Playstore and Appstore.</li>
+              </ul>
+            </span></li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Flutter Developer</h4>
+              <p class="timeline-text">Inflancer Technology</p>
+              <span data-start-date="2022-09-01" data-end-date="2024-08-01">Oct, 2022 — Aug, 2024  •  <span class="duration"></span></span>
+              <p class="timeline-text"><i>Kathmandu, Nepal</i></p>
+              <ul class="timeline-text">
+                <li>Developed new features and transformed UI designs into fully functional user interfaces.</li>
+                <li>Integrated payment solution like eSewa, for secure and seamless transactions.</li>
+                <li>Optimized application performance to ensure a smooth and engaging user experience.</li>
+                <li>Supported other team members initiatives by developing solutions to common problems and sharing those solutions.</li>
+                <li>Identified and resolved bugs, improving app stability and performance.</li>
+                <li>Wrote clean, maintainable, and testable code following best practices.</li>
+                <li>Utilization of latest version of support libraries to ensure backend compatibility.</li>
+                <li>Integrated payment solution like eSewa, for secure and seamless transactions.</li>
+                <li>Collaborated with backend developers, designers, and cross-functional teams to deliver scalable, high-quality solutions.</li>
+                <li>Performed code review and deployed the app in Playstore and Appstore.</li>
+              </ul>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Flutter Developer Intern</h4>
+              <p class="timeline-text">YAJ Tech Pvt. Ltd</p>
+              <span data-start-date="2022-04-01" data-end-date="2022-09-01">May, 2022 — Sep, 2022  •  <span class="duration"></span></span>
+              <p class="timeline-text"><i>Kathmandu, Nepal</i></p>
+              <ul class="timeline-text">
+                <li>Assisted in developing and maintaining Flutter applications, ensuring seamless functionality and user-friendly interfaces.</li>
+                <li>Supported the implementation of visually appealing UI designs that aligned with client requirements and design principles.</li>
+                <li>Collaborated with cross-functional teams, including back-end developers and designers, to deliver efficient, high-quality, and scalable solutions.</li>
+                <li>Gained hands-on experience in debugging, troubleshooting, and refining app features to improve user experience.</li>
+              </ul>
+            </li>
+
+            <!-- <li class="timeline-item">
+              <div class="timeline-item-header">
+                <div class="company-logo">
+                  <img src="./assets/clients/yajtech_logo.png">
+                </div>
+                <div class="timeline-item-content">
+                  <h4 class="h4 timeline-item-title">Flutter Developer Intern</h4>
+                  <p class="timeline-text">YAJ Tech Pvt. Ltd</p>
+                  <span data-start-date="2022-04-01" data-end-date="2022-09-01">May, 2022 — Sep, 2022 � " <span class="duration"></span></span>
+                  <p class="timeline-text"><i>Kathmandu, Nepal</i></p>
+                </div>
+              </div>
+              <ul class="timeline-text">
+                <li>Assisted in developing and maintaining Flutter applications, ensuring seamless functionality and user-friendly interfaces.</li>
+              </ul>
+            </li> -->
+
+          </ol>
+        </section>
+        
+
+        <button class="form-btn" type="button" data-form-btn="" onclick="window.open('./assets/cv/Thomas Verry SE Resume.pdf')">
+          <ion-icon name="document-text-outline"></ion-icon>
+          <span>Download CV</span>
+        </button>
+
+
+
+        <!-- <section class="skill">
+
+          <h3 class="h3 skills-title">My skills</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Web design</h5>
+                <data value="80">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Graphic design</h5>
+                <data value="70">70%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 70%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Branding</h5>
+                <data value="90">90%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">WordPress</h5>
+                <data value="50">50%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 50%;"></div>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section> -->
+
+        <!--
+          - Clients
+        -->
+<!-- 
+        <section class="clients">
+
+          <h3 class="h3 clients-title">Clients</h3>
+
+          <ul class="clients-list has-scrollbar">
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets\clients\tokma.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/clients/inflancer.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets\clients\yajtech.png" alt="client logo">
+              </a>
+            </li>
+
+          </ul>
+
+        </section> -->
+
+      </article>
+
+      <!--
+        - #EXPERTISE 
+      -->
+      <article class="expertise" data-page="tech stack">
+        <header>
+          <h2 class="h2 article-title">Tech Stack</h2>
+        </header>
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">App Development</h3>
+          </div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h2 timeline-item-title">Frameworks / Languages</h4>
+              <div id="frameworksLanguagesExperties" class="buttonContainer">
+                <button class="toolBtn" id="flutterExperties">Flutter
+                  <img class ="icon" src = "images/Flutter.svg" alt="Flutter" width="20"> </button>
+
+                <button class="toolBtn" id="dartExperties">Dart
+                  <img class ="icon" src = "images/Dart.svg" alt="Dart" width="20"> </button>
+
+                <button class="toolBtn" id="flutterFlowExperties">FlutterFlow
+                  <img class ="icon" src = "images/flutterflow-logo.png" alt="FlutterFlow" width="20"> </button>
+                
+                <button class="toolBtn" id="typescriptExperties">Typescript
+                  <img class ="icon" src = "images/typeScript.svg" alt="Typescript" width="20"></button>
+
+                  <button class="toolBtn" id="javascriptExperties">Javascript
+                    <img class ="icon" src = "images/javascript.svg" alt="Javascript" width="20"> </button>
+              </div>
+
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">Database</h4>
+                <div id="databaseExperties" class="buttonContainer">
+                  <button class="toolBtn" id="firebaseFirestoreExperties">Firebase Firestore
+                    <img class ="icon" src = "images/firebase-firestore.png" alt="Flutter" width="20"> </button>
+
+                    <button class="toolBtn" id="firebaseRealtimeExperties">Firebase Realtime
+                      <img class ="icon" src = "images/firebase-realtime.png" alt="Flutter" width="20"> </button>
+  
+                  <button class="toolBtn" id="SupabaseExperties">Supabase
+                    <img class ="icon" src = "images/supabase.svg" alt="Flutter" width="20"> </button>
+  
+                  <button class="toolBtn" id="sqliteExperties">Sqlite
+                    <img class ="icon" src = "images/sqlite.svg" alt="Flutter" width="20"> </button>
+                  
+                  <button class="toolBtn" id="localStorageExperties">Local Storage
+                    <img class ="icon" src = "images/local-database.png" alt="Flutter" width="20"></button>
+  
+                </div>
+              </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Connections</h4>
+              <div id="plugnisExperties" class="buttonContainer">
+                <button class="toolBtn" id="googleMapsExperties">Google Maps
+                  <img class ="icon" src = "images/google-map.svg" alt="Google Maps" width="20" height="18"> </button>
+
+                <button class="toolBtn" id="algoliaSearchExperties">Algolia Search
+                  <img class ="icon" src = "images/algolia.png" alt="Algolia Search" width="20"> </button>
+                
+                <button class="toolBtn" id="notificationsExperties">Notifications
+                  <img class ="icon" src = "images/notification.png" alt="Notifications" width="20"></button>
+
+                <button class="toolBtn" id="socialLoginExperties">Social Login
+                  <img class ="icon" src = "images/social-login.png" alt="Social Login" width="20"> </button>
+
+                <button class="toolBtn" id="ZapierExperties">Zapier
+                  <img class ="icon" src = "images/zapier.png" alt="Zapier" width="20"> </button>
+
+                <button class="toolBtn" id="MakeExperties">Make
+                  <img class ="icon" src = "images/make.png" alt="Make" width="20"> </button>
+                
+                <button class="toolBtn" id="geminiExperties">Gemini
+                  <img class ="icon" src = "images/Gemini.png" alt="Gemini" width="20"> </button>
+  
+                <button class="toolBtn" id="flutterExperties">OpenAI
+                  <img class ="icon" src = "images/openAI.png" alt="OpenAI" width="20"> </button>
+
+              </div>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Payment Gateway</h4>
+              <div id="paymentGatewayExperties" class="buttonContainer">
+                <button class="toolBtn" id="RazorpayExperties">Razorpay
+                  <img class ="icon" src = "images/razorpay.png" alt="Razorpay" width="20"> </button>
+
+                <button class="toolBtn" id="inAppPurchaseExperties">In App Purchase
+                  <img class ="icon" src = "images/iap.svg" alt="In App Purchase" width="20"> </button>
+
+                <button class="toolBtn" id="BraintreeExperties">Braintree
+                  <img class ="icon" src = "images/braintree.svg" alt="Braintree" width="20"> </button>
+                
+                <button class="toolBtn" id="googlePayExperties">Google Pay
+                  <img class ="icon" src = "images/google-pay.svg" alt="Google Pay" width="20"></button>
+              </div>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Deployment</h4>
+              <div id="deploymentExperties" class="buttonContainer">
+                <button class="toolBtn" id="playStoreExperties">Play Store
+                  <img class ="icon" src = "images/google-play.png" alt="Play Store" width="20"> </button>
+
+                <button class="toolBtn" id="appStoreExperties">App Store
+                  <img class ="icon" src = "images/app-store.svg" alt="App Store" width="20"> </button>
+
+                <button class="toolBtn" id="WebExperties">Web
+                  <img class ="icon" src = "images/web.svg" alt="Web" width="20"> </button>
+                
+                <button class="toolBtn" id="MicrosoftExperties">Microsoft Store
+                  <img class ="icon" src = "images/microsoft-store.png" alt="Microsoft Store" width="20"></button>
+
+                  <button class="toolBtn" id="LinuxExperties">Linux
+                    <img class ="icon" src = "images/linux.svg" alt="Linux" width="20"> </button>
+              </div>
+            </li>
+          </ol>
+
+          <section class="timeline" style="padding-top: 40px;">
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <ion-icon name="book-outline"></ion-icon>
+              </div>
+              <h3 class="h3">Model Development</h3>
+            </div>
+            <ol class="timeline-list">
+              <li class="timeline-item">
+                <h4 class="h2 timeline-item-title">Frameworks / Languages</h4>
+                <div id="frameworksLanguagesExperties" class="buttonContainer">
+                  <button class="toolBtn" id="flutterExperties">Python
+                    <img class ="icon" src = "images/Python.png" alt="Python" width="20"> </button>
+  
+                  <button class="toolBtn" id="">PyTorch
+                    <img class ="icon" src = "images/pytorch.svg" alt="PyTorch" width="20"> </button>
+  
+                  <button class="toolBtn" id="">TensorFlow
+                    <img class ="icon" src = "images/tensorFlow.png" alt="TensorFlow" width="20"> </button>
+
+                  <button class="toolBtn" id="">Juypter Notebook
+                    <img class ="icon" src = "images/jupyter-notebook.png" alt="Juypter Notebook" width="20"> </button>
+
+                    <button class="toolBtn" id="">Scikit Learn
+                      <img class ="icon" src = "images/scikit-learn.png" alt="Scikit Learn" width="20"> </button>
+                </div>
+  
+                <li class="timeline-item">
+                  <h4 class="h4 timeline-item-title">Data</h4>
+                  <div id="databaseExperties" class="buttonContainer">
+                    <button class="toolBtn" id="bigQueryExperties">Big Query
+                      <img class ="icon" src = "images/bigquery.png" alt="Big Query" width="20"> </button>
+
+                    <button class="toolBtn" id="PubsubExperties">Pubsub
+                      <img class ="icon" src = "images/Pubsub.png" alt="Pubsub" width="20"></button>
+
+                    <button class="toolBtn" id="cloudStorageExperties">Cloud Storage
+                      <img class ="icon" src = "images/google-cloud.png" alt="Cloud Storage" width="20"> </button>
+
+                    <button class="toolBtn" id="MySQLExperties">Firebase
+                      <img class ="icon" src = "images/Firebase.svg" alt="Firebase" width="20"> </button>
+  
+                    <button class="toolBtn" id="MySQLExperties">MySQL
+                      <img class ="icon" src = "images/mysql.png" alt="MySQL" width="20"> </button>
+
+                    <button class="toolBtn" id="supabaseExperties">Supabase
+                      <img class ="icon" src = "images/supabase.svg" alt="Supabase" width="20"> </button>
+
+                    <button class="toolBtn" id="Pinecone">Pinecone
+                      <img class ="icon" src = "images/pinecone.png" alt="Pinecone" width="20"> </button>
+    
+                    <button class="toolBtn" id="PostgresExperties">Postgres
+                      <img class ="icon" src = "images/Postgres.png" alt="Postgres" width="20"> </button>
+                    
+    
+                  </div>
+                </li>
+  
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">Deployment</h4>
+                <div id="deploymentExperties" class="buttonContainer">
+                  <button class="toolBtn" id="playStoreExperties">Vertex AI
+                    <img class ="icon" src = "images/VertexAI.png" alt="Play Store" width="20"> </button>
+  
+                  <button class="toolBtn" id="appStoreExperties">Hugging Face
+                    <img class ="icon" src = "images/hugging-face.png" alt="App Store" width="20"> </button>
+  
+                  <button class="toolBtn" id="WebExperties">REST API
+                    <img class ="icon" src = "images/api.svg" alt="Web" width="20"> </button>
+                  
+                </div>
+              </li>
+
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">Tools & Utilities</h4>
+                <div id="paymentGatewayExperties" class="buttonContainer">
+                  <button class="toolBtn" id="RazorpayExperties">Android Studio
+                    <img class ="icon" src = "images/android-studio.svg" alt="Razorpay" width="20"> </button>
+  
+                  <button class="toolBtn" id="inAppPurchaseExperties">VS Code
+                    <img class ="icon" src = "images/visual-studio-code.svg" alt="In App Purchase" width="20"> </button>
+  
+                  <button class="toolBtn" id="BraintreeExperties">Postman
+                    <img class ="icon" src = "images/postman-icon.svg" alt="Braintree" width="20"> </button>
+
+                  <button class="toolBtn" id="GitExperties">Git
+                    <img class ="icon" src = "images/git.svg" alt="Git" width="20"> </button>
+                
+                    <button class="toolBtn" id="GithubExperties">Github
+                      <img class ="icon" src = "images/github.svg" alt="Github" width="20"> </button>
+                  
+                </div>
+              </li>
+            </ol>
+  
+        </section>
+      </article>
+      
+
+
+
+      <!--
+        - #PORTFOLIO
+      -->
+
+      <article class="portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn="">All</button>
+            </li>
+
+            <!-- <li class="filter-item">
+              <button data-filter-btn="">Applications</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn="">Web development</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn="">UI/UX</button>
+            </li> -->
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select="">
+
+              <div class="select-value" data-selecct-value="">Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item="">All</button>
+              </li>
+
+              <!-- <li class="select-item">
+                <button data-select-item="">Applications</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item="">Web development</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item="">UI/UX</button>
+              </li> -->
+
+
+            </ul>
+
+          </div>
+
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item="" data-category="applications">
+              <a href="https://nagarikapp.gov.np/" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="images/nagarikapp.png" alt="Nagarik App" loading="lazy">
+                </figure>
+                <h3 class="project-title">Nagarik App</h3>
+                <p class="project-category">Application</p>
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+      <!--
+        - #BLOG
+      -->
+
+      <!-- <article class="blog" data-page="blog">
+
+        <header>
+          <h2 class="h2 article-title">Blog</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+            <li class="blog-post-item">
+              <a href="https://aakash58.hashnode.dev/flutter-vs-flock-exploring-the-new-fork-in-cross-platform-development" target="_blank">
+
+                <figure class="blog-banner-box">
+                  <img src="images/blog-2.png" alt="Flutter vs. Flock: Cross-Platform Evaluation" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Blog</p>
+                    <span class="dot"></span>
+                    <time datetime="2024-11-18">Nov 18, 2024</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Flutter vs. Flock: Cross-Platform Evaluation </h3>
+
+                  <p class="blog-text" style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical;">
+                    Explore the differences between Flutter and Flock, a new fork focused on faster development and community-driven cross-platform app creation </p>
+                </div>
+
+              </a>
+            </li>
+
+
+            <li class="blog-post-item">
+              <a href="https://aakash58.hashnode.dev/the-future-of-cross-platform-apps-flutters-role-in-2024-and-beyond" target="_blank">
+
+                <figure class="blog-banner-box">
+                  <img src="images/blog-1.png" alt="Flutter's Impact on Future Cross-Platform Apps" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Blog</p>
+                    <span class="dot"></span>
+                    <time datetime="2024-11-13">Nov 13, 2024</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Flutter's Impact on Future Cross-Platform Apps </h3>
+
+                  <p class="blog-text" style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical;">
+                    Explore Flutter's growing influence on cross-platform app development in 2024 and its future potential across mobile, web, and IoT devices </p>
+                </div>
+
+              </a>
+            </li>
+
+
+          </ul>
+
+        </section>
+
+      </article> -->
+
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox="">
+          <figure>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25544.227711489162!2d-76.0807424!3d36.84179435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1746131737907!5m2!1sen!2sus" width="400" height="300" loading="lazy"></iframe>
+          </figure>
+        </section>
+
+        <!-- support -->
+
+        <!-- <section class="clients">
+
+          <h3 class="h3 clients-title">Support</h3>
+
+          <ul class="clients-list has-scrollbar">
+
+            <li class="clients-item">
+              <a href="https://iili.io/2tKHzpn.jpg" target="_blank">
+                <img src="./assets/payments/esewa.svg" alt="client logo" height="100" width="100" ">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="https://iili.io/2tKKVZF.jpg" target="_blank">
+                <img src="./assets/payments/khalti.svg" alt="client logo" height="100" width="100" ">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="https://iili.io/2tKHTIs.jpg" target="_blank">
+                <img src="./assets/payments/imepay.svg" alt="client logo" height="100" width="100" ">
+              </a>
+            </li>
+
+          </ul>
+
+        </section> -->
+        
+
+        <!-- contact form -->
+
+    <section class="contact-form">
+      <h3 class="h3 form-title">Contact Form</h3>
+    
+      <form action="https://api.web3forms.com/submit" method="POST" class="form" data-form="">
+        <input type="hidden" name="access_key" value="3bfdc8c6-a387-429f-a1a4-3c397d132d11">
+        <input type="hidden" name="from_name" value="Portfolio">
+    
+        <div class="input-wrapper">
+          <input type="text" name="fullname" class="form-input" placeholder="Full name" required="" data-form-input="">
+          <input type="email" name="email" class="form-input" placeholder="Email address" required="" data-form-input="">
+        </div>
+    
+        <input type="text" name="subject" class="form-input" placeholder="Subject" required="" data-form-input="">
+    
+        <textarea name="message" class="form-input" placeholder="Your Message" required="" data-form-input=""></textarea>
+    
+        <button class="form-btn" type="submit" disabled="" data-form-btn="">
+          <ion-icon name="paper-plane"></ion-icon>
+          <span>Send Message</span>
+        </button>
+      </form>
+    </section>
+    
+    
+
+    <div id="toast" class="toast"></div>
+
+    <script data-cfasync="false" src="js/email-decode.min.js"></script><script src="js/ionicons.js"></script>
+       </article>
+
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  </main>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
-</html>
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <!--
+    - experience calculator
+  -->
+  <script src="./assets/js/experience-calculator.js"></script>
+
+<!-- 
+- chatbot 
+-->
+
+<!-- <script type='text/javascript'>
+  (function(I, L, T, i, c, k, s) {if(I.iticks) return;I.iticks = {host:c, settings:s, clientId:k, cdn:L, queue:[]};var h = T.head || T.documentElement;var e = T.createElement(i);var l = I.location;e.async = true;e.src = (L||c)+'/client/inject-v2.min.js';h.insertBefore(e, h.firstChild);I.iticks.call = function(a, b) {I.iticks.queue.push([a, b]);};})(window, 'https://cdn-v1.intelliticks.com/prod/common', document, 'script', 'https://app.intelliticks.com', 'QDSJoM9bye7eFGLsn_c', {});
+</script> -->
+
+
+                  
+
+<footer class="footer">
+  <div class="footerContainer">
+    <p class="copyright">Copyright © 2025 Jake Verry</p>
+  </div>
+</footer>
+
+</body></html>
