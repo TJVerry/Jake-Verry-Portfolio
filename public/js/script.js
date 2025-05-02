@@ -1,31 +1,15 @@
 'use strict';
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, orderBy } from 'firebase/firestore';
-
-
-// element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
 async function getProjects() {
-  const projectsCol = collection(db, 'projects');
-  const q = query(projectsCol, orderBy("order")); // Order by the 'order' field
-  const projectSnapshot = await getDocs(q);
-  const projectList = projectSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })); // Include document ID
-  return projectList;
+  try {
+    const response = await fetch('/getProjects'); // Call the Cloud Function
+    const projects = await response.json();
+    return projects;
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    return [];
+  }
 }
 
 async function displayProjects() {
@@ -58,6 +42,7 @@ async function displayProjects() {
 }
 
 displayProjects();
+
 
 // sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
