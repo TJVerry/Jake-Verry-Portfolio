@@ -1,11 +1,63 @@
 'use strict';
-
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs, orderBy } from 'firebase/firestore';
 
 
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
 
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+async function getProjects() {
+  const projectsCol = collection(db, 'projects');
+  const q = query(projectsCol, orderBy("order")); // Order by the 'order' field
+  const projectSnapshot = await getDocs(q);
+  const projectList = projectSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })); // Include document ID
+  return projectList;
+}
+
+async function displayProjects() {
+  const projects = await getProjects();
+  const projectListElement = document.querySelector('.project-list');
+
+  // Clear existing projects
+  projectListElement.innerHTML = '';
+
+  projects.forEach(project => {
+    const projectItem = document.createElement('li');
+    projectItem.classList.add('project-item', 'active'); // Add 'active' class if needed
+    projectItem.setAttribute('data-filter-item', '');
+    projectItem.setAttribute('data-category', project.category);
+
+    projectItem.innerHTML = `
+      <a href="${project.link}" target="_blank">
+        <figure class="project-img">
+          <div class="project-item-icon-box">
+            <ion-icon name="eye-outline"></ion-icon>
+          </div>
+          <img src="${project.image}" alt="${project.title}" loading="lazy">
+        </figure>
+        <h3 class="project-title">${project.title}</h3>
+        <p class="project-category">${project.category}</p>
+      </a>
+    `;
+    projectListElement.appendChild(projectItem);
+  });
+}
+
+displayProjects();
 
 // sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
