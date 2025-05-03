@@ -1,16 +1,22 @@
 'use strict';
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
-async function getProjects() {
-  try {
-    const response = await fetch('/getProjects'); // Call the Cloud Function
-    const projects = await response.json();
-    return projects;
-  } catch (error) {
-    console.error("Error fetching projects:", error);
-    return [];
-  }
-}
+// async function getProjects() {
+//   try {
+//     const response = await fetch('https://personal-portfolio-713c1.cloudfunctions.net/getProjects'); // Replace with your Cloud Functions URL
+//     const data = await response.json();
+//     const projects = data.projects;
+//     const firebaseConfig = data.firebaseConfig;
+
+//     // Initialize Firebase app
+//     firebase.initializeApp(firebaseConfig);
+
+//     return projects;
+//   } catch (error) {
+//     console.error("Error fetching projects:", error);
+//     return [];
+//   }
+// }
 
 async function displayProjects() {
   const projects = await getProjects();
