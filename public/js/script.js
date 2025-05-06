@@ -245,6 +245,41 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
+  function renderProjects(projects) {
+    const projectList = document.getElementById("projectList");
+    projectList.innerHTML = ""; // Clear any existing projects
+
+    projects.forEach(project => {
+        // Create a list item for each project
+        const li = document.createElement("li");
+        li.className = "project-item";
+        li.innerHTML = `
+            <a href="${project.link}" target="_blank">
+                <figure>
+                  <img src="${project.image}" alt="${project.title}" />
+                </figure>
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+            </a>
+        `;
+        projectList.appendChild(li);
+    });
+}
+
+function loadProjects() {
+    fetch("/getProjects")
+        .then(response => response.json())
+        .then(data => {
+            // Sort by order if not already sorted
+            data.sort((a, b) => a.order - b.order);
+            renderProjects(data);
+        })
+        .catch(error => console.error("Error loading projects:", error));
+}
+
+// Call loadProjects once the DOM is ready
+document.addEventListener("DOMContentLoaded", loadProjects);
+
   form.addEventListener("submit", (e) => {
     e.preventDefault()
     submitBtn.disabled = true
