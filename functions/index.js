@@ -15,20 +15,20 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
 
-const db = admin.firestore();
-let projectRef = db.collection("projects");
+// const db = admin.firestore();
+// let projectRef = db.collection("projects");
 
-exports.getProjects = onRequest((req, res) => {
-  projectRef.orderBy("order").get()
-      .then((querySnapshot) => {
-          const projects = [];
-          querySnapshot.forEach((doc) => {
-            projects.push(doc.data());
-          });
-          res.json(projects);
-      })
-      .catch((error) => {
-          console.error("Error getting projects:", error);
-          res.status(500).send(error);
-      });
-});
+// exports.getProjects = onRequest((req, res) => {
+//   projectRef.orderBy("order").get()
+//       .then((querySnapshot) => {
+//           const projects = [];
+//           querySnapshot.forEach((doc) => {
+//             projects.push(doc.data());
+//           });
+//           res.json(projects);
+//       })
+//       .catch((error) => {
+//           console.error("Error getting projects:", error);
+//           res.status(500).send(error);
+//       });
+// });
