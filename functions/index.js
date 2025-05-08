@@ -1,34 +1,25 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
+const functions = require("firebase-functions");
+const admin     = require("firebase-admin");
+const cors      = require("cors")({ origin: ["https://jakeverry.com", "http://localhost:5000"] });
 
-const admin = require("firebase-admin");
-const serviceAccount = require("../serviceAccountKey.json");
-const { onRequest } = require("firebase-functions/v2/https");
+admin.initializeApp();
+const db = admin.firestore();
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+exports.getProjects = functions.https.onRequest((req, res) => {
+  // this handles OPTIONS and sets all of your CORS headers automatically
+  cors(req, res, () => {
+    // now your actual handler logic:
+    if (req.method !== "GET") {
+      return res.status(405).send("Method Not Allowed");
+    }
+    db.collection("projects")
+      .get()
+      .then(snapshot => {
+        const projects = snapshot.docs.map(doc => doc.data());
+        res.json(projects);
+      })
+      .catch(err => {
+        res.status(500).json({ error: err.message });
+      });
+  });
 });
-
-// const db = admin.firestore();
-// let projectRef = db.collection("projects");
-
-// exports.getProjects = onRequest((req, res) => {
-//   projectRef.orderBy("order").get()
-//       .then((querySnapshot) => {
-//           const projects = [];
-//           querySnapshot.forEach((doc) => {
-//             projects.push(doc.data());
-//           });
-//           res.json(projects);
-//       })
-//       .catch((error) => {
-//           console.error("Error getting projects:", error);
-//           res.status(500).send(error);
-//       });
-// });

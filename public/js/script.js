@@ -205,88 +205,92 @@ document.addEventListener("DOMContentLoaded", () => {
 // toasttt
 
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("[data-form]")
-  const inputs = form.querySelectorAll("[data-form-input]")
-  const submitBtn = form.querySelector("[data-form-btn]")
-  const submitBtnText = submitBtn.querySelector("span")
-  const toast = document.getElementById("toast")
+  // Experience duration calculator
+  function calculateDuration(startDate, endDate) {
+    const start = new Date(startDate);
+    const end = endDate === "present" ? new Date() : new Date(endDate);
+    const diffTime = Math.abs(end - start);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const years = Math.floor(diffDays / 365);
+    const months = Math.floor((diffDays % 365) / 30);
+
+    let duration = "";
+    if (years > 0) duration += `${years} yr${years > 1 ? "s" : ""}`;
+    if (months > 0) {
+      if (duration) duration += ", ";
+      duration += `${months} mo${months > 1 ? "s" : ""}`;
+    }
+    return duration;
+  }
+
+  function updateDurations() {
+    const timelineItems = document.querySelectorAll(".timeline-item span[data-start-date]");
+    timelineItems.forEach((item) => {
+      const startDate = item.getAttribute("data-start-date");
+      const endDate = item.getAttribute("data-end-date");
+      const durationElement = item.querySelector(".duration");
+
+      if (durationElement) {
+        const duration = calculateDuration(startDate, endDate);
+        durationElement.textContent = duration;
+      } else if (endDate === "present") {
+        const duration = calculateDuration(startDate, "present");
+        item.textContent = `${item.textContent.split("—")[0]}— Present • ${duration}`;
+      }
+    });
+  }
+
+  updateDurations();
+  setInterval(updateDurations, 60000);
+
+  // Toast and contact form
+  const form = document.querySelector("[data-form]");
+  const inputs = form.querySelectorAll("[data-form-input]");
+  const submitBtn = form.querySelector("[data-form-btn]");
+  const submitBtnText = submitBtn.querySelector("span");
+  const toast = document.getElementById("toast");
 
   function checkFormValidity() {
-    const isValid = Array.from(inputs).every((input) => input.value.trim() !== "")
-    submitBtn.disabled = !isValid
+    const isValid = Array.from(inputs).every((input) => input.value.trim() !== "");
+    submitBtn.disabled = !isValid;
   }
 
   inputs.forEach((input) => {
-    input.addEventListener("input", checkFormValidity)
-  })
+    input.addEventListener("input", checkFormValidity);
+  });
 
   function showToast(message, isSuccess) {
     toast.innerHTML = `
-            <div class="toast__icon">
-                <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="m13 13h-2v-6h2zm0 4h-2v-2h2zm-1-15c-1.3132 0-2.61358.25866-3.82683.7612-1.21326.50255-2.31565 1.23915-3.24424 2.16773-1.87536 1.87537-2.92893 4.41891-2.92893 7.07107 0 2.6522 1.05357 5.1957 2.92893 7.0711.92859.9286 2.03098 1.6651 3.24424 2.1677 1.21325.5025 2.51363.7612 3.82683.7612 2.6522 0 5.1957-1.0536 7.0711-2.9289 1.8753-1.8754 2.9289-4.4189 2.9289-7.0711 0-1.3132-.2587-2.61358-.7612-3.82683-.5026-1.21326-1.2391-2.31565-2.1677-3.24424-.9286-.92858-2.031-1.66518-3.2443-2.16773-1.2132-.50254-2.5136-.7612-3.8268-.7612z" fill="#fff"></path>
-                </svg>
-            </div>
-            <div class="toast__title">${message}</div>
-            <div class="toast__close">
-                <svg height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z" fill="#fff"></path>
-                </svg>
-            </div>
-        `
-    toast.className = `toast ${isSuccess ? "success" : "error"} show`
+      <div class="toast__icon">
+        <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="m13 13h-2v-6h2zm0 4h-2v-2h2zm-1-15c-1.3132 0-2.61358.25866-3.82683.7612-1.21326.50255-2.31565 1.23915-3.24424 2.16773-1.87536 1.87537-2.92893 4.41891-2.92893 7.07107 0 2.6522 1.05357 5.1957 2.92893 7.0711.92859.9286 2.03098 1.6651 3.24424 2.1677 1.21325.5025 2.51363.7612 3.82683.7612 2.6522 0 5.1957-1.0536 7.0711-2.9289 1.8753-1.8754 2.9289-4.4189 2.9289-7.0711 0-1.3132-.2587-2.61358-.7612-3.82683-.5026-1.21326-1.2391-2.31565-2.1677-3.24424-.9286-.92858-2.031-1.66518-3.2443-2.16773-1.2132-.50254-2.5136-.7612-3.8268-.7612z" fill="#fff"></path>
+        </svg>
+      </div>
+      <div class="toast__title">${message}</div>
+      <div class="toast__close">
+        <svg height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+          <path d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z" fill="#fff"></path>
+        </svg>
+      </div>
+    `;
+    toast.className = `toast ${isSuccess ? "success" : "error"} show`;
     setTimeout(() => {
-      toast.className = "toast"
-    }, 3000)
+      toast.className = "toast";
+    }, 3000);
 
-    const closeBtn = toast.querySelector(".toast__close")
+    const closeBtn = toast.querySelector(".toast__close");
     closeBtn.addEventListener("click", () => {
-      toast.className = "toast"
-    })
+      toast.className = "toast";
+    });
   }
 
-  function renderProjects(projects) {
-    const projectList = document.getElementById("projectList");
-    projectList.innerHTML = ""; // Clear any existing projects
-
-    projects.forEach(project => {
-        // Create a list item for each project
-        const li = document.createElement("li");
-        li.className = "project-item";
-        li.innerHTML = `
-            <a href="${project.link}" target="_blank">
-                <figure>
-                  <img src="${project.image}" alt="${project.title}" />
-                </figure>
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-            </a>
-        `;
-        projectList.appendChild(li);
-    });
-}
-
-function loadProjects() {
-    fetch("/getProjects")
-        .then(response => response.json())
-        .then(data => {
-            // Sort by order if not already sorted
-            data.sort((a, b) => a.order - b.order);
-            renderProjects(data);
-        })
-        .catch(error => console.error("Error loading projects:", error));
-}
-
-// Call loadProjects once the DOM is ready
-document.addEventListener("DOMContentLoaded", loadProjects);
-
   form.addEventListener("submit", (e) => {
-    e.preventDefault()
-    submitBtn.disabled = true
-    const originalText = submitBtnText.textContent
-    submitBtnText.textContent = "Sending..."
+    e.preventDefault();
+    submitBtn.disabled = true;
+    const originalText = submitBtnText.textContent;
+    submitBtnText.textContent = "Sending...";
 
-    const formData = new FormData(form)
+    const formData = new FormData(form);
     fetch(form.action, {
       method: "POST",
       body: formData,
@@ -294,22 +298,66 @@ document.addEventListener("DOMContentLoaded", loadProjects);
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          showToast("Message sent successfully!", true)
-          form.reset()
-          checkFormValidity()
+          showToast("Message sent successfully!", true);
+          form.reset();
+          checkFormValidity();
         } else {
-          showToast("Unable to send message! Please try again.", false)
+          showToast("Unable to send message! Please try again.", false);
         }
       })
       .catch((error) => {
-        console.error("Error:", error)
-        showToast("Unable to send message! Please try again.", false)
+        console.error("Error:", error);
+        showToast("Unable to send message! Please try again.", false);
       })
       .finally(() => {
-        submitBtn.disabled = false
-        submitBtnText.textContent = originalText
+        submitBtn.disabled = false;
+        submitBtnText.textContent = originalText;
+      });
+  });
+
+  // Projects
+  function renderProjects(projects) {
+    const projectList = document.querySelector(".project-list");
+    projectList.innerHTML = ""; // Clear existing
+
+    projects.forEach(project => {
+      const li = document.createElement("li");
+      li.className = "project-item active";
+      li.setAttribute("data-filter-item", "");
+      li.setAttribute("data-category", project.category || "web design");
+      li.innerHTML = `
+        <a href="${project.link}" target="_blank">
+          <figure class="project-img">
+            <div class="project-item-icon-box">
+              <ion-icon name="eye-outline"></ion-icon>
+            </div>
+            <img src="${project.image}" alt="${project.title}" loading="lazy">
+          </figure>
+          <h3 class="project-title">${project.title}</h3>
+          <p class="project-category">${project.category}</p>
+        </a>
+      `;
+      projectList.appendChild(li);
+    });
+  }
+
+  function loadProjects() {
+    fetch("https://getprojects-tcmnztrlka-uc.a.run.app/", {
+      mode: "cors"       // ← tell fetch to allow cross-origin responses
+      // credentials: "include" // ← only if you need to send cookies/auth
+    })
+      .then(res => {
+        if (!res.ok) throw new Error(res.statusText);
+        return res.json();
       })
-  })
-})
+      .then(data => {
+        console.log("Projects data:", data);
+        renderProjects(data);
+      })
+      .catch(err => console.error("Error loading projects:", err));
+  }
+
+  loadProjects();
+});
 
 
